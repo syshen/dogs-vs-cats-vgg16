@@ -114,7 +114,7 @@ class Vgg16():
 
     # Keras2
     def fit(self, batches, val_batches, batch_size, nb_epoch=1):
-        self.model.fit_generator(batches, steps_per_epoch=int(np.ceil(batches.samples/batch_size)), epochs=nb_epoch,
+        return self.model.fit_generator(batches, steps_per_epoch=int(np.ceil(batches.samples/batch_size)), epochs=nb_epoch,
                 validation_data=val_batches, validation_steps=int(np.ceil(val_batches.samples/batch_size)))
 
         
