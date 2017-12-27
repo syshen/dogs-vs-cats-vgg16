@@ -2,6 +2,7 @@ import os
 import numpy as np
 from numpy.random import permutation
 from matplotlib import pyplot as plt
+from PIL import Image
 import itertools
 
 def plots(ims, figsize=(12,6), rows=1, interp=False, titles=None):
@@ -50,7 +51,6 @@ def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix'
 
     if normalize:
         cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-    print(cm)
     thresh = cm.max() / 2.
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
         plt.text(j, i, cm[i, j], horizontalalignment="center", color="white" if cm[i, j] > thresh else "black")
