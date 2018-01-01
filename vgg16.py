@@ -52,8 +52,8 @@ class Vgg16():
         model = self.model
         for i in range(layers):
             model.add(ZeroPadding2D((1, 1)))
-            model.add(Conv2D(filters, kernel_size=(3, 3), activation='relu'))  # Keras2
-        model.add(MaxPooling2D((2, 2), strides=(2, 2)))
+            model.add(Conv2D(filters, kernel_size=(3, 3), data_format="channels_first", activation='relu'))  # Keras2
+        model.add(MaxPooling2D((2, 2), strides=(2, 2), data_format="channels_first"))
 
 
     def FCBlock(self):
